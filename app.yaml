@@ -1,33 +1,20 @@
-
+# deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: abc-tech-deploy
+  name: abc-tech-app
 spec:
- selector:
-   matchLabels:
-      app: abc_deploy
- replicas: 3
-template:
-   metadata:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: abc-tech
+  template:
+    metadata:
       labels:
-        app: abc_deploy
-   spec:
+        app: abc-tech
+    spec:
       containers:
-      - name: abc-app
-        image: prajaktak781/abc_tech:latest
+      - name: abc-tech
+        image: prajaktak781/abc_tech:v1
         ports:
         - containerPort: 8080
-___
-apiVersion: apps/v1
-kind: Service
-metadata:
- name: abc-nodeport-svc
-spec:
- selector:
-   app: abc_deploy
- ports:
-   - protocol: TCP
-     port: 80
-     targetPort: 8080
-  type: NodePort
