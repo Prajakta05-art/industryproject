@@ -37,7 +37,7 @@ pipeline{
 		{
 			steps
 			{
-			    sh 'cp /var/lib/jenkins/workspace/$JOB_NAME/target/abc-technologies-app.war /var/lib/jenkins/workspace/$JOB_NAME/abc.war'
+			    sh 'cp target/ABCtechnologies-1.0.war ROOT.war'
                 sh 'docker build -t abc_tech:$BUILD_NUMBER .'
 				sh 'docker tag abc_tech:$BUILD_NUMBER prajaktak781/abc_tech:$BUILD_NUMBER'
 			}
