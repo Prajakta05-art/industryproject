@@ -6,7 +6,7 @@ pipeline{
 		{
 			steps
 			{
-				git 'https://github.com/Prajakta05-art/industryproject.git'
+				git url: 'https://github.com/Prajakta05-art/industryproject.git', branch: 'main'
 			}
 		}
 		
